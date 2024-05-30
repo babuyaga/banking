@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import Footer from './Footer'
 
+
 const SideBar = ({user}:SiderbarProps) => {
     const pathname = usePathname();
 
@@ -31,7 +32,7 @@ const isActive= pathname ===item.route || pathname.startsWith(`${item.route}/`)
         USER
         </nav>
   
-  <Footer user={user} type="mobile"/>
+<Footer user={user}/>
     </section>
   )
 }

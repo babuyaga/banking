@@ -31,7 +31,9 @@ declare type User = {
   userId: string;
   dwollaCustomerUrl: string;
   dwollaCustomerId: string;
-  name:string,
+  firstName:string;
+  lastName:string;
+  name:string;
   address1: string;
   city: string;
   state: string;
@@ -209,7 +211,7 @@ declare interface TotalBalanceBoxProps {
 
 declare interface FooterProps {
   user: User;
-  type?:'mobile'|'desktop'
+  type?:'mobile'|'desktop';
 }
 
 declare interface RightSidebarProps {

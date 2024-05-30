@@ -50,6 +50,7 @@ export async function getLoggedInUser() {
     try {
         const { account } = await createSessionClient();
         const user = await account.get();
+        console.log(user);
         return parseStringify(user)
     } catch (error) {
         return null;
@@ -57,15 +58,13 @@ export async function getLoggedInUser() {
 }
 
 
-export const logoutAccount = async () =>{
+export const logoutAccount = async () => {
+    try {
+        const { account } = await createSessionClient();
+        cookies().delete('appwrite-session');
+        await account.deleteSession('current');
 
-
-    try{
-const {account} = await createSessionClient();
-cookies().delete('appwrite-session');
-
-await account.deleteSession('current');
-    } catch(error) {
+    } catch (error) {
         return null;
     }
 }
